@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="./">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <title>MintFDI-LCA</title>
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Main styles for this application-->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        .multiselect {
+            width: 200px;
+        }
+
+        .selectBox {
+            position: relative;
+        }
+
+        .selectBox select {
+            width: 100%;
+            font-weight: bold;
+        }
+
+        .overSelect {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: 500;
+        }
+
+        #checkboxes label {
+            display: block;
+        }
+
+        #checkboxes label:hover {
+            background-color: #1e90ff;
+        }
+
+        #contact_form {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body class="c-app" onload="">
+    <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+
+    </div>
+    <div class="c-wrapper">
+        <div id="new-header"></div>
+        <div class="c-subheader px-3">
+            <ul class="c-header-nav d-sm-down-none">
+                <li class="c-header-nav-item px-3">
+                    <h4 class="card-title">MMP Report</h4>
+                </li>
+            </ul>
+        </div>
+        <div class="row col-sm-12" style="margin-left: 2%;margin-top: 20px;">
+            <div id="Div1" class="col-sm-2">
+                <b>Date :</b>
+                <input type="date" id="txt_FromDate" class="form-control " />
+            </div>
+            <div class="col-sm-2">
+                <b>Shift :</b>
+                <select class="form-control " id="ddlshift" style="height: 30px;">
+                    <option>--Select Shift--</option>
+                    <option value="Shift 1">Shift 1</option>
+                    <option value="Shift 2">Shift 2</option>
+                    <option value="Shift 3">Shift 3</option>
+                </select>
+            </div>
+            <div class="col-sm-2">
+                <b>Type :</b>
+                <select class="form-control " id="ddltype" style="height: 30px;">
+                    <option value="Packing_Machine">Packing_Machine</option>
+                    <option value="Process">Process</option>
+                </select>
+            </div>
+            <div class="col-sm-2">
+                <b>Machine:</b>
+                <div class="multiselect">
+                    <div class="selectBox" onclick="showCheckboxes();">
+                        <select class="form-control " id="ddlmachine" style="height: 30px;">
+                            <option>--Select Machine--</option>
+                        </select>
+                        <div class="overSelect"></div>
+                    </div>
+                    <div id="checkboxes" class="cekcls"
+                        style="overflow-y: scroll;border: 1px solid lightgray; display: none;height: 200px;width:190px; position: absolute;z-index: 10;background: white;">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button ID="button1" Style="margin-top: 15px;" OnClick="GetMMPreportData()"
+                    Class=" btn btn-primary">Submit</button>
+            </div>
+            <div class="col-md-2">
+                <button id="btnExport" class="btn btn-primary" style="margin-top: 15px;"
+                    onclick="tableToExcelMMP('tblMMP')">Export
+                    To Excel</button>
+            </div>
+        </div>
+        <div class="c-body">
+            <main class="c-main">
+                <div class="container-fluid">
+                    <div class="fade-in">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <table id="tblMMP"
+                                            style="font-family: verdana,arial,sans-serif; font-size: 11px; color: #333333; border-width: 1px; border-color: black; border-collapse: collapse;">
+                                            <tbody id="MMPtbody">
+
+                                            </tbody>
+
+                                        </table>
+                                        <div class="col-md-12 text-center">
+                                            <ul class="pagination pagination-lg pager" id="myPager"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div id="new-footer"></div>
+    </div>
+    <!-- jQuery 2.1.4 -->
+    <script src="plugins/js/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="plugins/js/coreui.bundle.min.js"></script>
+    <script src="plugins/js/moment.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/MMPReport.js"></script>
+
+    <script>
+        $("#sidebar").load("sidebar.html");
+        $("#new-header").load("header.html");
+        $("#new-footer").load("footer.html");
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<header class="c-header c-header-light c-header-fixed c-header-with-subheader">
+  <button class="c-header-toggler c-class-toggler d-lg-none mfe-auto" type="button" data-target="#sidebar"
+    data-class="c-sidebar-show">
+    <svg class="c-icon c-icon-lg">
+      <use xlink:href="icons/sprites/free.svg#cil-menu"></use>
+    </svg>
+  </button><a class="c-header-brand d-lg-none" href="#">
+    <img src="./img/HULLogo.jpg" alt="HUL Logo"></a>
+  <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" data-target="#sidebar"
+    data-class="c-sidebar-lg-show" responsive="true">
+    <svg class="c-icon c-icon-lg">
+      <use xlink:href="icons/sprites/free.svg#cil-menu"></use>
+    </svg>
+  </button>
+  <ul class="c-header-nav d-md-down-none">
+    <!-- <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="#">Dashboard</a></li>
+      <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="#">Users</a></li> -->
+  </ul>
+  <ul class="c-header-nav ml-auto mr-4">
+    <!-- <li class="c-header-nav-item d-md-down-none mx-2"><a class="c-header-nav-link" href="#">
+          <svg class="c-icon">
+            <use xlink:href="icons/sprites/free.svg#cil-bell"></use>
+          </svg></a></li> -->
+
+    <li class="c-header-nav-item dropdown"><a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button"
+        aria-haspopup="true" aria-expanded="false">
+        <div class="c-avatar">
+          <!-- <img class="c-avatar-img" src="" alt="user@email.com"> -->
+          <span class="c-avatar-img">
+            <svg class="c-icon mr-4">
+              <use xlink:href="icons/sprites/free.svg#cil-user"></use>
+            </svg>
+          </span>
+          <label id="userName" style="margin-right: 320%;margin-top: 8px;margin-left: -14px;"></label>
+        </div>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right pt-0" style="width: 450%;">
+        <div class="dropdown-header"></div>
+        <div class="dropdown-item">
+          <label onclick="signout()">Logout</label>
+          <lable onclick="PassReset()" style="margin-left: 25%;">Password Reset</lable>
+        </div>
+      </div>
+    </li>
+  </ul>
+</header>
+
+<div id="password_frm" class="form-horizontal">
+  <div class="card-body">
+    <div class="modal fade" id="PasswordModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalCreate">Password Reset</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12">
+
+                  <div class="form-group">
+                    <label>New Password</label>
+                    <input class="form-control" id="newpass" type="password" required>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button id="btn_add" name="ADD" class="btn btn-primary col-sm-offset-4"
+              onclick="updatePassword()">UPDATE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/common.js"></script>
+<!-- <script src="js/UaerTrack.js"></script> -->
+<script>
+  $(document).ready(function () {
+    debugger;
+    if (window.localStorage.getItem('user_key')) {
+      var data = window.localStorage.getItem('user_key');
+      document.getElementById("userName").innerHTML = JSON.parse(data);
+      //UserTrack();
+    }
+    else {
+      data = "none";
+      signout();
+    }
+  });
+
+  function UserTrack() {
+    debugger;
+    var pagename = window.location.pathname;
+    var username = window.localStorage.getItem('user_key');
+    var datetime = new Date();
+    var datetimeformat = "Y-m-d H:i:s";
+    datetime = format(datetime, datetimeformat);
+
+    $.ajax({
+
+        type: 'post',
+        url: "/InsertUserTrackDetail",
+        data: { datetime: datetime, pagename: pagename, username: username },
+        dataType: 'json',
+        async: false,
+
+        success: function (result) {
+            debugger;
+            if (result.rowsAffected == 1) {
+
+                //alert("Data saved successfully...");
+
+            }
+        }
+    });
+}
+
+
+  function signout() {
+    debugger;
+    localStorage.clear();
+    window.location.href = "/index.html";
+  }
+
+  function PassReset() {
+    document.getElementById("newpass").value = '';
+    $('#PasswordModal').modal({
+      backdrop: 'static',
+      keyboard: false
+    });
+  }
+
+  function updatePassword() {
+
+    var choice = confirm("Are you sure to change password..");
+    if (choice == true) {
+
+      var pass = document.getElementById("newpass").value;
+      var userName = document.getElementById("userName").innerHTML;
+
+      if (pass == "" || pass == null || userName == "" || userName == null) {
+        alert("Some Field is missing.. Please Enter Data.");
+      }
+      else {
+        $.post("/updatePassword", { pass, userName }, function (result) {
+          debugger;
+          if (result != null) {
+            var response = result.rowsAffected;
+            if (response > 0) {
+              alert("Password update successfully...");
+              $("#PasswordModal").modal('hide');
+            }
+          }
+        });
+      }
+    }
+  }
+
+</script>
+
+</html>

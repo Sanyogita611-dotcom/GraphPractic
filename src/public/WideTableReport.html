@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="./">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <title>MintFDI-LCA</title>
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Main styles for this application-->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        #contact_form {
+            display: none !important;
+        }
+
+        .btn-app {
+            border-radius: 50%;
+            position: relative;
+            padding: 15px 5px;
+            margin: 0 0 10px 10px;
+            min-width: 142px;
+            width: 14%;
+            height: 90px;
+            text-align: center;
+            color: #666;
+            border: 1px solid #ddd;
+            background-color: darkturquoise;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body class="c-app" onload="">
+    <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+    </div>
+    <div class="c-wrapper">
+        <div id="new-header"></div>
+        <div class="c-subheader px-3">
+            <ul class="c-header-nav d-sm-down-none">
+                <li class="c-header-nav-item px-3">
+                    <h4 class="card-title">Wide Table Report</h4>
+                </li>
+            </ul>
+        </div>
+        <div class="row" style="margin-left: 2%;">
+            <div id="Div1" class="col-sm-2">
+                <b>From Date :</b>
+                <input type="date" id="txt_FromDate" class="form-control " />
+            </div>
+            <div id="Div2" class="col-sm-2">
+                <b>To Date :</b>
+                <input type="date" id="txt_ToDate" class="form-control " />
+            </div>
+            <div class="col-md-1" id="divbtn">
+                <button ID="button1" Style="margin-top: 25%;" OnClick="UserData()"
+                    Class=" btn btn-primary">Submit</button>
+            </div>
+            <!-- <div class="col-sm-3">
+                <button id="btnExport" class="btn btn-primary" style="margin-top: 30px;float: right"
+                    onclick="tableToExcel('tblEventDetail')">Export
+                    To Excel</button>
+            </div> -->
+        </div>
+        <div class="c-body">
+            <main class="c-main">
+                <div class="container-fluid">
+                    <div class="fade-in">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="table-responsive" style="height: 500px;overflow-y: auto">
+                                            <table class="table table-responsive-sm table-hover" id="tblUserdata">
+                                                <thead class="thead-light">
+                                                    <tr> <!-- <th>Sr.No</th>
+                                                        <th>Date</th> -->
+                                                        <th>Time</th>
+                                                        <th>Parameter 1</th>
+                                                        <th>Parameter 2</th>
+                                                        <th>Parameter 3</th>
+                                                        <th>Parameter 4</th>
+                                                        <th>Parameter 5</th>
+                                                        <th>Parameter 6</th>
+                                                        <th>Parameter 7</th>
+                                                        <th>Parameter 8</th>
+                                                        <th>Parameter 9</th>
+                                                        <th>Parameter 10</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="userbody">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+  <div id="new-footer"></div>
+    </div>
+    <!-- jQuery 2.1.4 -->
+    <script src="plugins/js/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="plugins/js/coreui.bundle.min.js"></script>
+    <!-- <script src="plugins/js/coreui-utils.js"></script> -->
+
+    <!-- <script src="js/common.js"></script> -->
+    <script src="plugins/js/moment.js"></script>
+    <script src="js/WideTableReport.js"></script>
+
+    <!-- <script>
+        $("#sidebar").load("sidebar.html");
+        $("#new-header").load("header.html");
+        $("#new-footer").load("footer.html");
+    </script> -->
+
+    
+
+</body>
+
+</html>

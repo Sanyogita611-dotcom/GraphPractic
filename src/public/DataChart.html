@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="./">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <title>MintFDI-LCA</title>
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Main styles for this application-->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/default.css" rel="stylesheet">
+    <style>
+        #contact_form {
+            display: none !important;
+        }
+
+        .btn-app {
+            border-radius: 50%;
+            position: relative;
+            padding: 15px 5px;
+            margin: 0 0 10px 10px;
+            min-width: 142px;
+            width: 14%;
+            height: 90px;
+            text-align: center;
+            color: #666;
+            border: 1px solid #ddd;
+            background-color: darkturquoise;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body class="c-app" onload="">
+    <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+    </div>
+    <div class="c-wrapper c-fixed-components">
+        <div id="new-header"></div>
+        <div class="c-subheader px-3">
+          <ul class="c-header-nav d-md-down-none">
+            <li class="c-header-nav-item px-3">
+              <h4 class="card-title">DataTable</h4>
+            </li>
+          </ul>
+        </div>
+        <div class="c-body">
+          <main class="c-main">
+            <div class="container-fluid">
+              <div class="fade-in">
+                <div class='row'>
+                  
+                </div><br>
+                <div class="row">
+                 
+    
+                 
+                  <div class="col-sm-3">
+                    <div class="card" >
+                      <div class="card-header bg-flickr">
+                        <div style="font-size: large">  <!-- class="text-value-small" and class="text-value-xl"-->
+                          <h5 style="color: white;">Total row :</h5>
+                    </div>
+                      </div>
+                      <div class="card-body row text-center" style="height: 106px;">
+                        <div class="col" style="color: black">
+                          <div style="font-size: x-large;" id="prodcountlbl" onclick="getData()">0</div>
+                        </div>                    
+                      </div>
+                    </div>
+                  </div>          
+    
+                          
+                </div>
+    
+                <br>
+                <!-- /.card-->
+                <div class="row">
+                  <div class="col-sm-12 col-lg-6">
+                    <div class="card" style="height: 370px;">
+                      <div class="card-header with-border">
+                        <h5>OLE Chart</h5>
+                      </div>
+                      <div class="card-body" style="height: 250px; overflow-y: auto">
+                        <canvas id="myChart" style="max-height: 250px; max-width: 98%; margin-left: 1%;"></canvas>
+                       
+                      </div>
+    
+                    </div>
+                  </div>
+    
+                  <div class="col-sm-12 col-lg-6">
+                    <div class="card" style="height: 370px;">
+                      <div class="card-header with-border">
+                        <h5>Details In Average , Min ,Max ,Sum</h5>
+                      </div>
+                      <div class="card-body" style="height: 250px; overflow-y: auto">
+                        <table id="productionDetails" class="table table-bordered" style="text-align: center;">
+                          <tbody>
+                            <tr>
+                              <th style="text-align: center; width: 10px">#</th>
+                              <th style="text-align: center;">T1</th>
+                              <th style="text-align: center;">T2</th>
+                              <th style="text-align: center;">T3</th>
+                            </tr>
+                            <tr>
+                              <td style="text-align: center;"><b>Average</b></td>
+                              <td style="text-align: center;" id="T1Average" ></td>
+                              <td style="text-align: center;" id="T2Average" ></td>
+                              <td style="text-align: center;" id="T3Average" ></td>
+                            </tr>
+                            <tr>
+                              <td style="text-align: center;"><b>Minimum</b></td>
+                              <td style="text-align: center;" id="T1Minimum" ></td>
+                              <td style="text-align: center;" id="T2Minimum" ></td>
+                              <td style="text-align: center;" id="T3Minimum" ></td>
+                            </tr>
+                            <tr>
+                              <td style="text-align: center;"><b>Maximum</b></td>
+                              <td style="text-align: center;" id="T1Maximum" ></td>
+                              <td style="text-align: center;" id="T2Maximum" ></td>
+                              <td style="text-align: center;" id="T3Maximum" ></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;"><b>Sum</b></td>
+                                <td style="text-align: center;" id="T1Sum" ></td>
+                                <td style="text-align: center;" id="T2Sum" ></td>
+                                <td style="text-align: center;" id="T3Sum" ></td>
+                              </tr>
+                           
+                           </tbody>
+                        </table>
+                      </div>
+    
+                    </div>
+                  </div>
+    
+                </div>
+              
+              
+                
+    
+              </div>
+    
+          </main>
+        </div>
+        <div id="new-footer">
+        </div>
+      </div>
+    <!-- jQuery 2.1.4 -->
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/Chart.min.js"></script>
+
+    <script src="js/line.js"></script>
+    <script src="plugins/js/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="plugins/js/coreui.bundle.min.js"></script>
+    <!-- <script src="plugins/js/coreui-utils.js"></script> -->
+
+    <!-- <script src="js/common.js"></script> -->
+    <script src="plugins/js/moment.js"></script>
+    <script src="js/DataChart.js"></script>
+
+    <!-- <script>
+        $("#sidebar").load("sidebar.html");
+        $("#new-header").load("header.html");
+        $("#new-footer").load("footer.html");
+    </script> -->
+    
+
+</body>
+
+</html>

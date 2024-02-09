@@ -1,0 +1,14 @@
+{
+	"connectionString": {
+		"server": "192.168.2.59",
+		"database": "cronjob",
+		"user": "sa",
+		"password": "Admin@123",
+		"port": 1433,
+		"connectionTimeout": 6000000,
+        "requestTimeout": 6000000,
+		"options": {
+			"encrypt": false
+		}
+	}
+}

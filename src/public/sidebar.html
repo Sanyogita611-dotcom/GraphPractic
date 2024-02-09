@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<style>
+      /* floating box style */
+      .floating-form {
+            top: 25%;
+            z-index: 200000;
+            max-width: 280px !important;
+            min-width: 280px;
+            padding: 30px 30px 10px 30px;
+            font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #F9F9F9;
+            border: 1px solid #ddd;
+            color: black;
+            right: 10px;
+            position: fixed;
+            box-shadow: -2px -0px 8px rgba(43, 33, 33, 0.06);
+            -moz-box-shadow: -2px -0px 8px rgba(43, 33, 33, 0.06);
+            -webkit-box-shadow: -2px -0px 8px rgba(43, 33, 33, 0.06);
+      }
+
+      .contact-opener {
+            position: absolute;
+            left: -71px;
+            transform: rotate(-90deg);
+            top: 100px;
+            background-color: #216288;
+            padding: 9px;
+            color: #fff;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.43);
+            cursor: pointer;
+            border-radius: 5px 5px 0px 0px;
+            -webkit-border-radius: 5px 5px 0px 0px;
+            -moz-border-radius: 5px 5px 0px 0px;
+            box-shadow: -2px -0px 8px rgba(43, 33, 33, 0.06);
+            -moz-box-shadow: -2px -0px 8px rgba(43, 33, 33, 0.06);
+            -webkit-box-shadow: -2px -0px 8px rgba(43, 33, 33, 0.06);
+      }
+
+      .floating-form-heading {
+            font-weight: bold;
+            font-style: italic;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 10px;
+            font-size: 15px;
+            padding-bottom: 3px;
+      }
+
+      .txtBox {
+            margin-top: 10px;
+            padding: 4px;
+            width: 100%;
+            font-size: 12px;
+            border-radius: 6px;
+            border: 2px solid #98d0f1;
+
+      }
+
+      .formButton {
+            background: #2bc1f2;
+            border: none;
+            color: #fff;
+            width: 50%;
+            font-size: 18px;
+            font-weight: bolder;
+            margin-left: 25%;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 25px;
+      }
+
+      .ddlBox {
+            padding: 4px;
+            width: 100%;
+            font-size: 12px;
+            border-radius: 6px;
+            margin-top: 10px;
+            border: 2px solid #98d0f1;
+            margin-bottom: 10px;
+      }
+
+
+      @media screen and (max-width: 1024px) {
+            #divCompanyLogo {
+                  display: none;
+            }
+      }
+</style>
+<div class="c-sidebar-brand d-lg-down-none">
+      <img class="c-sidebar-brand-full" src="img/mint_fdi.png" style="height: 60px;" alt="MintFDI Logo">
+      <img class="c-sidebar-brand-minimized" src="img/mint_fdi.png" width="40" height="15" alt="MintFDI Logo">
+</div>
+
+
+<ul class="c-sidebar-nav">
+      <li class="c-sidebar-nav-title">Dashboard</li>
+
+      <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="Cascade.html">
+                  <svg class="c-sidebar-nav-icon">
+                        <use xlink:href="icons/sprites/free.svg#cil-speedometer"></use>
+                  </svg>UNIT 1 DASHBOARD</a></li>
+      <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="PowderPlantView.html">
+                  <svg class="c-sidebar-nav-icon">
+                        <use xlink:href="icons/sprites/free.svg#cil-speedometer"></use>
+                  </svg>UNIT 1 PP DASHBOARD</a></li>
+      <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="Unit2CascadeDashboard.html">
+                  <svg class="c-sidebar-nav-icon">
+                        <use xlink:href="icons/sprites/free.svg#cil-speedometer"></use>
+                  </svg>UNIT 2 DASHBOARD</a></li>
+
+      <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="LiveDashboard.html">
+                  <svg class="c-sidebar-nav-icon">
+                        <use xlink:href="icons/sprites/free.svg#cil-speedometer"></use>
+                  </svg>Live Dashboard</a></li>
+
+
+                  <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="WaterFallChart.html" target="_blank">
+                        <svg class="c-sidebar-nav-icon">
+                              <use xlink:href="icons/sprites/free.svg#cil-speedometer"></use>
+                        </svg>WATERFALL CHART</a></li>
+      <!-- <li class="c-sidebar-nav-title">Standard Reports</li> -->
+      <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle"
+                  href="#">
+                  <svg class="c-sidebar-nav-icon">
+                        <use xlink:href="icons/sprites/free.svg#cil-pencil"></use>
+                  </svg> Standard Reports</a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                  <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="ShiftLossSummary.html"><span
+                                    class="c-sidebar-nav-icon"></span>Shift Loss Summary</a></li>
+                  <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="LossDetail.html"><span
+                                    class="c-sidebar-nav-icon"></span>Loss Detail</a></li>
+                  <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="LossLive.html"><span
+                                    class="c-sidebar-nav-icon"></span>Loss Correction</a></li>
+                  <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="NoTouch.html"><span
+                                    class="c-sidebar-nav-icon"></span>NoTouch Report</a></li>
+                  <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="ProductionReport.html"><span
+                                    class="c-sidebar-nav-icon"></span>Production Report</a></li>
+            </ul>
+      </li>
+
+      <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle"
+                  href="#">
+                  <svg class="c-sidebar-nav-icon">
+                        <use xlink:href="icons/sprites/free.svg#cil-pencil"></use>
+                  </svg> Custom Reports</a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                  <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="MMPReport.html"><span
+                                    class="c-sidebar-nav-icon"></span>MMP Report</a></li>
+                  <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="LossOnDemand.html"><span
+                                    class="c-sidebar-nav-icon"></span>Loss On Demand</a></li>
+                  <!-- <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="FlowWrap.html"><span
+                                          class="c-sidebar-nav-icon"></span>Flow Wrap Count</a></li>
+                                          <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="BarRateUPM.html"><span
+                                                class="c-sidebar-nav-icon"></span>Bar Rate (UPM Unit)</a></li> -->
+            </ul>
+      </li>
+
+      <!-- Chart -->
+
+      <!-- <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle"
+            href="#">
+            <svg class="c-sidebar-nav-icon">
+                  <use xlink:href="icons/sprites/free.svg#cil-settings"></use>
+            </svg> Charts</a>
+      <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item" id="config"><a class="c-sidebar-nav-link"
+                        href="LossChart.html"><span class="c-sidebar-nav-icon"></span>Loss Chart</a></li>
+                        <li class="c-sidebar-nav-item" id="config"><a class="c-sidebar-nav-link"
+                              href="UPMGraph.html"><span class="c-sidebar-nav-icon"></span>Bar Rate UPM Chart</a></li>
+      </ul>
+</li> -->
+      <!-- <li class="c-sidebar-nav-title">Configuration</li> -->
+
+      <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle"
+                  href="#">
+                  <svg class="c-sidebar-nav-icon">
+                        <use xlink:href="icons/sprites/free.svg#cil-settings"></use>
+                  </svg> Configuration</a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                  <li class="c-sidebar-nav-item" id="config"><a class="c-sidebar-nav-link"
+                              href="UserRegister.html"><span class="c-sidebar-nav-icon"></span>User Register</a></li>
+                  <li class="c-sidebar-nav-item" id="SOA"><a class="c-sidebar-nav-link" href="SKUMaster.html"><span
+                                    class="c-sidebar-nav-icon"></span>SKU Master</a></li>
+                  <!-- <li class="c-sidebar-nav-item" id="SOA"><a class="c-sidebar-nav-link"
+                              href="RootCauseConfiguration.html"><span class="c-sidebar-nav-icon"></span>RootCause
+                              Configuration</a></li> -->
+                  <li class="c-sidebar-nav-item" id="SOA"><a class="c-sidebar-nav-link"
+                              href="LossConfiguration.html"><span class="c-sidebar-nav-icon"></span>Loss
+                              Configuration</a></li>
+            </ul>
+      </li>
+
+      
+
+
+</ul>
+
+
+
+
+
+
+
+
+<button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent"
+      data-class="c-sidebar-minimized"></button>
+
+<div class="floating-form" id="contact_form">
+      <div class="contact-opener"><b>PARAMETERS</b></div>
+      <div class="floating-form-heading"><b>Select parameters</b></div>
+      <div id="contact_results"></div>
+      <div id="contact_body">
+            <label ID="lblstrt" Style="font-family: Cambria; font-weight: bold;">Date :</label>
+            <select id="ddlDateType" class="ddlBox" style="min-width: 90%;">
+                  <option selected>---Select Date---</option>
+                  <option>Today</option>
+                  <option>Yesterday</option>
+                  <option>Custom Date</option>
+            </select>
+            <div id="dateinput">
+                  <input type="date" id="txtDate" class="txtBox" style="min-width: 100%; margin-left: 0px;"></input>
+            </div>
+            <label ID="lblShift" Style="font-family: Cambria; font-weight: bold; margin-left: 0px !important">Shift
+                  :</label>
+            <select ID="ddlShift" class=" ddlBox" style=" min-width: 90%;">
+                  <option selected>---Select Shift---</option>
+                  <option value="Shift 1">Shift 1</option>
+                  <option value="Shift 2">Shift 2</option>
+                  <option value="Shift 3">Shift 3</option>
+            </select>
+
+            <label ID="lblMachine" Style="font-family: Cambria; font-weight: bold;">Line :</label>
+            <select Style="min-width: 90%; margin-bottom: 15px; display: block;" id="ddlmachinedesc"
+                  class="ddlBox ddllinecls">
+                  <option>---Select Line---</option>
+
+            </select>
+            <input type="button" id="customButton" name="customButton" style="color: white;  font-size: 12px;"
+                  onclick="geparameterData();" value="Submit " class="btn btn-primary formButton">
+
+            <div id="notvalid" style="color: red; margin: 30px 40px 15px 40px; font-size: 12px;"></div>
+      </div>
+</div>
+
+<script src="js/common.js"></script>
+
+
+<script>
+      $(document).ready(function () {
+
+            var divWidth = "-" + document.getElementById("contact_form").offsetWidth;
+            var _scroll = true, _timer = false, _floatbox = $("#contact_form"), _floatbox_opener = $(".contact-opener");
+            _floatbox.css("right", "-280px"); //initial contact form position
+
+            //Contact form Opener button
+            _floatbox_opener.click(function () {
+                  if (_floatbox.hasClass('visiable')) {
+                        var divWidth = "-" + document.getElementById("contact_form").offsetWidth;
+                        _floatbox.animate({ "right": divWidth }, { duration: 300 }).removeClass('visiable');
+                  } else {
+                        _floatbox.animate({ "right": "0px" }, { duration: 300 }).addClass('visiable');
+                  }
+            });
+
+
+            var machine = localStorage.getItem('machine');
+            var day = localStorage.getItem('date');
+            if (machine == '' || machine == "null") {
+                  var workcell = 'Line 1';
+            }
+            if (day == '' || day == null) {
+                  debugger;
+                  var today = new Date();
+                  var dateFormat = "Y-m-d";
+                  var datetimeformat = "Y-m-d H:i:s";
+
+                  var Edate = format(today, datetimeformat);
+                  today = format(today, dateFormat);
+
+                  //     //Shift value
+                  var shift1 = today + " " + "07:00:00";
+                  var shift2 = today + " " + "15:00:00";
+                  var shift3 = today + " " + "23:00:00";
+                  var midnight = today + " " + "23:59:59";
+
+                  var newday = new Date();
+                  newday.setDate(newday.getDate() - 1);
+                  var d = newday.getDate();
+                  var m = newday.getMonth() + 1;
+                  var y = newday.getFullYear();
+
+                  newday = y + "-" + m + "-" + d + " " + "23:00:00";
+                  debugger;
+                  if (new Date(Edate).valueOf() >= new Date(shift1).valueOf() &&
+                        new Date(Edate).valueOf() < new Date(shift2).valueOf()) {
+                        localStorage.setItem('Shift', 'Shift 1');
+                  }
+                  else if (new Date(Edate).valueOf() >= new Date(shift2).valueOf() &&
+                        new Date(Edate).valueOf() < new Date(shift3).valueOf()) {
+                        localStorage.setItem('Shift', 'Shift 2');
+                  }
+                  else if (new Date(Edate).valueOf() >= new Date(newday).valueOf() && new Date(Edate).valueOf() < new Date(shift1).valueOf()
+                        || new Date(Edate).valueOf() >= new Date(shift3).valueOf()) {
+                        if (new Date(Edate).valueOf() >= new Date(shift3).valueOf()
+                              && new Date(Edate).valueOf() < new Date(midnight).valueOf()
+                        ) {
+                              localStorage.setItem('Shift', 'Shift 3');
+                        }
+                        if (new Date(Edate).valueOf() >= new Date(newday).valueOf() && new Date(Edate).valueOf() < new Date(shift1).valueOf()) {
+                              localStorage.setItem('Shift', 'Shift 3');
+                        }
+                  }
+                  var workcell = machine;
+                  localStorage.setItem('machine', workcell);
+                  localStorage.setItem('date', today);
+            }
+
+
+
+            showhidedata();
+            $('#ddlDateType').on('change', function () {
+                  showhidedata();
+            });
+            $('#ddlShift').on('change', function () {
+                  var selection = document.getElementById("ddlDateType").value;
+                  if (selection != '---Select Date---') { getWorkcell() };
+            });
+      });
+
+      function getWorkcell() {
+            debugger;
+            var today = new Date();
+            var dateFormat = "Y-m-d";
+            var datetimeformat = "Y-m-d H:i:s";
+
+            var Edate = format(today, datetimeformat);
+            today = format(today, dateFormat);
+
+            //     //Shift value
+            var shift1 = today + " " + "07:00:00";
+            var shift2 = today + " " + "15:00:00";
+            var shift3 = today + " " + "23:00:00";
+            var midnight = today + " " + "23:59:59";
+
+            var newday = new Date();
+            newday.setDate(newday.getDate() - 1);
+            var d = newday.getDate();
+            var m = newday.getMonth() + 1;
+            var y = newday.getFullYear();
+
+            newday = y + "-" + m + "-" + d + " " + "23:00:00";
+
+            if (new Date(Edate).valueOf() >= new Date(shift1).valueOf() &&
+                  new Date(Edate).valueOf() < new Date(shift2).valueOf()) {
+                  var sShift = 'Shift 1';
+            }
+            else if (new Date(Edate).valueOf() >= new Date(shift2).valueOf() &&
+                  new Date(Edate).valueOf() < new Date(shift3).valueOf()) {
+                  var sShift = 'Shift 2';
+            }
+            else if (new Date(Edate).valueOf() >= new Date(newday).valueOf() && new Date(Edate).valueOf() < new Date(shift1).valueOf()
+                  || new Date(Edate).valueOf() >= new Date(shift3).valueOf()) {
+                  if (new Date(Edate).valueOf() >= new Date(shift3).valueOf()
+                        && new Date(Edate).valueOf() < new Date(midnight).valueOf()
+                  ) {
+                        var sShift = 'Shift 3';
+                  }
+                  if (new Date(Edate).valueOf() >= new Date(newday).valueOf() && new Date(Edate).valueOf() < new Date(shift1).valueOf()) {
+                        var sShift = 'Shift 3';
+                  }
+            }
+
+            var selectShift = document.getElementById("ddlShift").value;
+
+            var dateFormat = "Y-m-d";
+
+            var selection = document.getElementById("ddlDateType").value;
+            if (selection == 'Custom Date') {
+                  var date = document.getElementById("txtDate").value;
+            }
+            else if (selection == 'Today') {
+                  // var date=format(today, dateFormat); 
+                  var date = today;
+            }
+            else if (selection == 'Yesterday') {
+                  var yesterday = new Date();
+                  yesterday.setDate(yesterday.getDate() - 1);
+                  var date = format(yesterday, dateFormat);
+            }
+
+            $.ajax({
+                  type: 'GET',
+                  url: '/getWorkcell',
+                  async: false,
+                  data: {
+                        selectShift: selectShift, sShift: sShift, date: date, today: today
+                  },
+                  success: function (data) {
+                        debugger;
+                        if (data != null || data != "") {
+                              var response = data.recordset;
+                              console.log(response);
+                              if (response.length > 0) {
+                                    var options1 = "";
+                                    $.each(response, function (i, d) {
+                                          if (i == 0) {
+                                                options1 += '<option value="' + d["MachineName"] + '" selected>' + d["MachineName"] + '</option>';
+                                          }
+                                          else {
+                                                options1 += '<option value="' + d["MachineName"] + '">' + d["MachineName"] + '</option>';
+                                          }
+
+                                    });
+
+                                    $('.ddllinecls').html(options1);
+                              }
+                        }
+                  }
+            });
+      }
+
+      function showhidedata() {
+            debugger;
+            var selection = document.getElementById("ddlDateType").value;
+            if (selection == 'Custom Date') {
+                  $("#dateinput").show();
+                  // document.getElementById("dateinput").style.display = 'inline';       
+            }
+            else if (selection == 'Today') {
+                  $("#dateinput").hide();
+            }
+            else {
+                  $("#dateinput").hide();
+            }
+      }
+
+      function geparameterData() {
+            debugger;
+            var selecteddate = '';
+            var dateFormat = "Y-m-d";
+            var selection = document.getElementById("ddlDateType").value;
+            if (selection == 'Today') {
+                  var today = new Date();
+                  selecteddate = format(today, dateFormat);
+            }
+            else if (selection == 'Yesterday') {
+                  var yesterday = new Date();
+                  yesterday.setDate(yesterday.getDate() - 1);
+                  selecteddate = format(yesterday, dateFormat);
+            }
+            else if (selection == 'Custom Date') {
+                  var txtDate = document.getElementById("txtDate").value;
+                  var dt = txtDate.split('T');
+                  selecteddate = dt[0];
+            }
+
+            var shift = document.getElementById("ddlShift").value;
+            var machine = document.getElementById("ddlmachinedesc").value;
+
+            debugger;
+
+            //     if (window.location.pathname.includes("Dashboard.html")) {
+            //       localStorage.setItem('date', '');
+            //       localStorage.setItem('Shift', '');
+            //       localStorage.setItem('Line', '');
+            //       window.location.href = '/Dashboard.html?date=' + selecteddate + '&shift=' + shift + '&Line=' + Line;
+            //     }
+            //     else {
+            localStorage.setItem('date', selecteddate);
+            localStorage.setItem('Shift', shift);
+            localStorage.setItem('machine', machine);
+            location.reload();
+            // }
+      }
+
+</script>
+
+</html>
